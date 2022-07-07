@@ -12,6 +12,7 @@
 		1789588828770DD3005B45FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1789588728770DD3005B45FF /* Assets.xcassets */; };
 		1789588B28770DD3005B45FF /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1789588928770DD3005B45FF /* Preferences.storyboard */; };
 		178958E32877725B005B45FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178958E12877725B005B45FF /* Main.storyboard */; };
+		178958E6287777D4005B45FF /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 178958E5287777D4005B45FF /* LaunchAtLogin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				178958E6287777D4005B45FF /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +78,16 @@
 				1789587C28770DD0005B45FF /* Sources */,
 				1789587D28770DD0005B45FF /* Frameworks */,
 				1789587E28770DD0005B45FF /* Resources */,
+				178958E728777AC9005B45FF /* Copy “Launch at Login Helper” */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Urusai;
+			packageProductDependencies = (
+				178958E5287777D4005B45FF /* LaunchAtLogin */,
+			);
 			productName = Urusai;
 			productReference = 1789588028770DD0005B45FF /* Urusai.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 1789587728770DD0005B45FF;
+			packageReferences = (
+				178958E4287777D4005B45FF /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+			);
 			productRefGroup = 1789588128770DD0005B45FF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -131,6 +140,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		178958E728777AC9005B45FF /* Copy “Launch at Login Helper” */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy “Launch at Login Helper”";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1789587C28770DD0005B45FF /* Sources */ = {
@@ -285,7 +315,7 @@
 				CODE_SIGN_ENTITLEMENTS = Urusai/Urusai.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 35BSP6SUG9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -298,7 +328,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mnpn.Urusai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -314,7 +344,7 @@
 				CODE_SIGN_ENTITLEMENTS = Urusai/Urusai.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 35BSP6SUG9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -327,7 +357,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.mnpn.Urusai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -357,6 +387,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		178958E4287777D4005B45FF /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		178958E5287777D4005B45FF /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 178958E4287777D4005B45FF /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1789587828770DD0005B45FF /* Project object */;
 }

@@ -27,13 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                                  mElement: kAudioObjectPropertyElementMain)
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // set default UserDefaults if they do not exist
-        UserDefaults.standard.register(
-            defaults: [
-                "should_launch_at_startup": true,
-                "should_show_menubar_item": true
-            ]
-        )
+        UserDefaults.standard.register(defaults: ["should_show_menubar_item": true])
 
         addListenerBlock(listenerBlock: audioObjectPropertyListenerBlock,
                          onAudioObjectID: AudioObjectID(bitPattern: kAudioObjectSystemObject),
@@ -58,7 +52,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Preferences…", action: #selector(openPreferences), keyEquivalent: ","))
         menu.addItem(NSMenuItem(title: "Quit Urusai", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         statusItem.menu = menu
-        openPreferences()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) { }
@@ -87,7 +80,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                        lastDevice = device
                    }
                default:
-                   print("We didn't expect this!")
+                   print("pain, there's no default device?")
            }
            index += 1
        }

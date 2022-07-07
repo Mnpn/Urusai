@@ -93,12 +93,15 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k8U-Gd-2G8">
-                                            <rect key="frame" x="18" y="60" width="315" height="18"/>
+                                            <rect key="frame" x="18" y="60" width="296" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Launch Urusai automatically on system start-up" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="FkZ-rc-dLF">
+                                            <buttonCell key="cell" type="check" title="Launch Urusai automatically when logging in" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="FkZ-rc-dLF">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <binding destination="XfG-lQ-9wD" name="value" keyPath="launchAtLogin.isEnabled" id="HlY-Cs-aJt"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xym-S7-Fec">
                                             <rect key="frame" x="18" y="38" width="200" height="18"/>
@@ -126,13 +129,13 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="autolaunchToggle" destination="k8U-Gd-2G8" id="DFj-hU-FAq"/>
                         <outlet property="link" destination="vI3-UN-Pdy" id="iaJ-Bz-1fs"/>
                         <outlet property="menubarToggle" destination="Xym-S7-Fec" id="fZL-KB-Fbd"/>
                         <outlet property="versionLabel" destination="aKr-kL-Rye" id="Box-KW-uqX"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="8GZ-zj-pP5"/>
             </objects>
             <point key="canvasLocation" x="75" y="552.5"/>
         </scene>

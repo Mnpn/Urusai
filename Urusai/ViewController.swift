@@ -6,18 +6,18 @@
 //
 
 import Cocoa
+import LaunchAtLogin
 
 class ViewController: NSViewController {
-    @IBOutlet weak var autolaunchToggle: NSButton!
     @IBOutlet weak var menubarToggle: NSButton!
     @IBOutlet weak var versionLabel: NSTextField!
     @IBOutlet var link: NSTextView!
 
     let df = UserDefaults.standard
+    @objc dynamic var launchAtLogin = LaunchAtLogin.kvo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        autolaunchToggle?.state = df.bool(forKey: "should_launch_at_startup") ? NSControl.StateValue.on : NSControl.StateValue.off
         menubarToggle?.state = df.bool(forKey: "should_show_menubar_item") ? NSControl.StateValue.on : NSControl.StateValue.off
         
         // https://stackoverflow.com/questions/3015796
