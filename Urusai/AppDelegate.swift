@@ -40,18 +40,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             lastDevice = device
         }
         
-        // create status bar item
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        if let button = statusItem.button {
-            button.image = NSImage(systemSymbolName: "waveform.circle", accessibilityDescription: "Urusai")
-            button.isHidden = !UserDefaults.standard.bool(forKey: "should_show_menubar_item")
+        if UserDefaults.standard.bool(forKey: "should_show_menubar_item") {
+            createMenu()
         }
-        let menu = NSMenu()
-        menu.addItem(NSMenuItem(title: "Urusai " + version + " (* ^ ω ^)", action: nil, keyEquivalent: ""))
-        menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Preferences…", action: #selector(openPreferences), keyEquivalent: ","))
-        menu.addItem(NSMenuItem(title: "Quit Urusai", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
-        statusItem.menu = menu
     }
 
     func applicationWillTerminate(_ aNotification: Notification) { }
@@ -141,6 +132,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSLog("Changed the current audio input device to " + device.name + " (ID " + String(device.id) + ").")
     }
     
+    func createMenu() {
+        // create status bar item
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        if let button = statusItem.button {
+            button.image = NSImage(systemSymbolName: "waveform.circle", accessibilityDescription: "Urusai")
+        }
+        let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Urusai " + version + " (* ^ ω ^)", action: nil, keyEquivalent: ""))
+        menu.addItem(NSMenuItem.separator())
+        menu.addItem(NSMenuItem(title: "Preferences…", action: #selector(openPreferences), keyEquivalent: ","))
+        menu.addItem(NSMenuItem(title: "Quit Urusai", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+        statusItem.menu = menu
+    }
+
     @objc func openPreferences() {
         if preferencesWindowController?.window?.occlusionState.contains(.visible) ?? false { return }
         preferencesWindowController?.showWindow(self)

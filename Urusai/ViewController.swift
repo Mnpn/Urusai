@@ -42,7 +42,11 @@ class ViewController: NSViewController {
 
     @IBAction func menubarToggled(_ sender: NSButton) {
         let delegate = NSApplication.shared.delegate as! AppDelegate
-        delegate.statusItem.button?.isHidden = sender.state == NSControl.StateValue.off
+        if sender.state == NSControl.StateValue.on {
+            delegate.createMenu()
+        } else {
+            delegate.statusItem = nil // .isHidden hides the icon but does not remove its space
+        }
         df.set(sender.state == NSControl.StateValue.on, forKey: "should_show_menubar_item")
     }
 }
